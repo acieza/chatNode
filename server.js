@@ -1,12 +1,14 @@
 var express = require('express');
 var socket = require('socket.io');
-const cors = require('cors');
+
 
 
 var app = express();
 
+var server = app.listen(3000, function(){
+    console.log('Esperando respuesta del puerto 3000');
+});
 
-app.use(cors());
 
 var io = socket(server);
 
@@ -26,7 +28,4 @@ io.on('connection', (socket) => {
        
     });
 
-});
-var server = app.listen(3000, function(){
-    console.log('Esperando respuesta del puerto 3000');
 });
